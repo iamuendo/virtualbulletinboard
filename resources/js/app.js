@@ -1,5 +1,6 @@
 import './bootstrap';
 import './auth';
+import './mode';
 
 import Alpine from 'alpinejs';
 

@@ -19,9 +19,11 @@ return new class extends Migration
             $table->longText('description');
             $table->date('start_date');
             $table->date('end_date');
-            $table->string('location_details');
-            $table->string('room_no', 50);
-            $table->string('meeting_url');
+            $table->time('start_time');
+            $table->time('end_time');
+            $table->string('location_details')->nullable();
+            $table->string('room_no', 50)->nullable();
+            $table->string('meeting_url')->nullable();
             $table->string('available_slots');
             $table->boolean('isRegistrationOpen')->default(true);
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
