@@ -1,7 +1,15 @@
 <?php
 
+use App\Http\Controllers\BookmarkEventController;
+use App\Http\Controllers\BookmarkEventMechanismController;
+use App\Http\Controllers\DiscoverEventsController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\EventDetailsController;
+use App\Http\Controllers\LikedEventController;
+use App\Http\Controllers\LikeMechanismController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RsvpEventsController;
+use App\Http\Controllers\RsvpEventsMechanismController;
 use App\Models\EventCategory;
 use Illuminate\Support\Facades\Route;
 
@@ -24,13 +32,30 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+// Route::get('/discover', function () {
+//     return view('discover');
+// })->middleware(['auth', 'verified'])->name('discover');
+
 Route::middleware('auth')->group(function () {
+    Route::get('/events/discover', DiscoverEventsController::class)->name('discover');
+    Route::get('/events/info/{id}', EventDetailsController::class)->name('event.details');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    Route::resource('/events', EventController::class);
+    Route::resource('/manage/events', EventController::class);
+
+    Route::get('/events/upcoming-events', RsvpEventsController::class)->name('events.rsvpEvents');
+    Route::get('/events/liked-events', LikedEventController::class)->name('events.likedEvents');
+    Route::get('/events/saved-events', BookmarkEventController::class)->name('events.bookmarkEvents');
+
+    Route::post('/events/booked/{id}', RsvpEventsMechanismController::class)->name('events.booking');
+    Route::post('/events/liked/{id}', LikeMechanismController::class)->name('events.like');
+    Route::post('/events/saved/{id}', BookmarkEventMechanismController::class)->name('events.bookmarkEvent');
     
+    Route::get('/categories/{category}', function (EventCategory $category) {
+        return response()->json($category);
+    });
     
 });
 

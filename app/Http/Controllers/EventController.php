@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateEventRequest;
+use App\Http\Requests\UpdateEventRequest;
 use App\Models\EventCategory;
 use App\Models\EventMode;
 use App\Models\Event;
 use App\Models\Tag;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -19,18 +21,20 @@ class EventController extends Controller
      */
     public function index(): View
     {
-        return view('events.index');
+        $events = Event::with('category')->get();
+        return view('events.index', compact('events'));
     }
+
 
     /**
      * Show the form for creating a new resource.
      */
     public function create() :View
     {
-        $event_categories = EventCategory::all();
-        $event_mode = EventMode::all();
+        $categories = EventCategory::all();
+        $modes = EventMode::all();
         $tags = Tag::all();
-        return view('events.create', compact('event_categories', 'event_mode', 'tags'));
+        return view('events.create', compact('categories', 'modes', 'tags'));
     }
 
     /**
@@ -54,34 +58,41 @@ class EventController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Event $event): View
     {
-        //
+        $categories = EventCategory::all();
+        $modes = EventMode::all();
+        $tags = Tag::all();
+        return view('events.edit', compact('categories', 'modes', 'tags', 'event'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateEventRequest $request, Event $event): RedirectResponse
     {
-        //
+        $data = $request->validated();
+        if ($request->hasFile('poster')) {
+            Storage::delete($event->poster);
+            $data['poster'] = Storage::putFile('events', $request->file('poster'));
+        }
+
+        $data['slug'] = Str::slug($request->title);
+        $event->update($data);
+        $event->tags()->sync($request->tags);
+        return to_route('events.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Event $event): RedirectResponse
     {
-        //
+        Storage::delete($event->poster);
+        $event->tags()->detach();
+        $event->delete();
+        return to_route('events.index');
     }
 }

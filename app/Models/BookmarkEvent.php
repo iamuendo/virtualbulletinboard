@@ -6,11 +6,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class MyEvent extends Model
+class BookmarkEvent extends Model
 {
     use HasFactory;
 
-    
     protected $fillable = [
         'user_id',
         'event_id',

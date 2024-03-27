@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     var radioButtons = document.querySelectorAll('.event-mode-radio');
+    var radioButtonsEdit = document.querySelectorAll('.event-mode-radio-edit');
+
     var physicalSection = document.getElementById('physical-details');
     var virtualSection = document.getElementById('virtual-details');
 
@@ -8,10 +10,16 @@ document.addEventListener("DOMContentLoaded", function () {
         radio.addEventListener('change', handleRadioChange);
     });
 
+    radioButtonsEdit.forEach(function (radio) {
+        radio.checked = true;
+        radio.addEventListener('change', handleRadioChange);
+    });
+
+
     function handleRadioChange() {
-        var physicalChecked = document.getElementById('eventMode-1').checked;
-        var virtualChecked = document.getElementById('eventMode-2').checked;
-        var hybridChecked = document.getElementById('eventMode-3').checked;
+        var physicalChecked = document.getElementById('mode-1').checked;
+        var virtualChecked = document.getElementById('mode-2').checked;
+        var hybridChecked = document.getElementById('mode-3').checked;
 
         if (physicalChecked) {
             physicalSection.style.display = 'block';
