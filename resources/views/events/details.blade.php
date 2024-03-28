@@ -42,22 +42,22 @@
                                     })
                                 }
                         }">
-                        <button type="button" @click="onHandleBooking" class="inline-flex justify-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900" :class="booking ? 'bg-red-500 hover:bg-red-800' : 'bg-red hover:bg-gray-50'">
-                            <svg class="-ml-1 mr-2 h-5 w-5 text-gray-400" x-description="Heroicon name: solid/calendar" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                        <button type="button" @click="onHandleBooking" class="inline-flex justify-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900" :class="booking ? 'text-white bg-green-500 hover:bg-green-800' : 'text-gray-700 bg-red hover:bg-gray-50'">
+                            <svg class="-ml-1 mr-2 h-5 w-5" :class="booking ? 'text-white' : 'text-gray-700'" x-description="Heroicon name: solid/calendar" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
                                 <path fill-rule="evenodd" d="M6.75 2.25A.75.75 0 0 1 7.5 3v1.5h9V3A.75.75 0 0 1 18 3v1.5h.75a3 3 0 0 1 3 3v11.25a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3V7.5a3 3 0 0 1 3-3H6V3a.75.75 0 0 1 .75-.75Zm13.5 9a1.5 1.5 0 0 0-1.5-1.5H5.25a1.5 1.5 0 0 0-1.5 1.5v7.5a1.5 1.5 0 0 0 1.5 1.5h13.5a1.5 1.5 0 0 0 1.5-1.5v-7.5Z" clip-rule="evenodd" />
                             </svg>
                             <span>RSVP</span>
                         </button>
 
-                        <button type="button" @click="onHandleLike" class="inline-flex justify-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900" :class="likeEvent ? 'bg-red-500 hover:bg-red-800' : 'bg-red hover:bg-gray-50'">
-                            <svg class="-ml-1 mr-2 h-5 w-5 text-gray-400" x-description="Heroicon name: solid/heart" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <button type="button" @click="onHandleLike" class="inline-flex justify-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900" :class="likeEvent ? 'text-white bg-red-500 hover:bg-red-800' : 'bg-gray hover:bg-gray-50'">
+                            <svg class="-ml-1 mr-2 h-5 w-5 text-gray-400" :class="booking ? 'text-white' : 'text-gray-700'" x-description="Heroicon name: solid/heart" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="m11.645 20.91-.007-.003-.022-.012a15.247 15.247 0 0 1-.383-.218 25.18 25.18 0 0 1-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0 1 12 5.052 5.5 5.5 0 0 1 16.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 0 1-4.244 3.17 15.247 15.247 0 0 1-.383.219l-.022.012-.007.004-.003.001a.752.752 0 0 1-.704 0l-.003-.001Z" />
                             </svg>
                             <span>Like</span>
                         </button>
 
-                        <button type="button" @click="onHandleBookmarkEvent" class="inline-flex justify-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900" :class="bookmarkEvent ? 'bg-orange-500 hover:bg-orange-800' : 'bg-red hover:bg-gray-50'">
-                            <svg class="-ml-1 mr-2 h-5 w-5 text-gray-400" x-description="Heroicon name: solid/bookmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <button type="button" @click="onHandleBookmarkEvent" class="inline-flex justify-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900" :class="bookmarkEvent ? 'text-white bg-orange-500 hover:bg-orange-800' : 'bg-gray hover:bg-gray-50'">
+                            <svg class="-ml-1 mr-2 h-5 w-5 text-gray-400" :class="bookmarkEvent ? 'text-white' : 'text-gray-700'" x-description="Heroicon name: solid/bookmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                                 <path fill-rule="evenodd" d="M6.32 2.577a49.255 49.255 0 0 1 11.36 0c1.497.174 2.57 1.46 2.57 2.93V21a.75.75 0 0 1-1.085.67L12 18.089l-7.165 3.583A.75.75 0 0 1 3.75 21V5.507c0-1.47 1.073-2.756 2.57-2.93Z" clip-rule="evenodd" />
                             </svg>
                             <span>Bookmark</span>
@@ -151,112 +151,73 @@
                             </p>
                         </div>
                     </div>
+                    @auth
                     <section aria-labelledby="event-forum" class="mt-8 xl:mt-10">
-                        <div>
-                            <div class="divide-y divide-gray-200">
-                                <div class="pb-4">
-                                    <h2 id="event-forum" class="text-lg font-medium text-gray-900">Event Forum</h2>
+                        <div class="divide-y divide-gray-200">
+                            <div class="pb-4">
+                                <h2 id="event-forum" class="text-lg font-medium text-gray-900">Event Forum</h2>
+                            </div>
+
+                            <div class="pt-6">
+                                <div class="flow-root">
+
+                                    <ul role="list" class="-mb-8">
+                                        @foreach ($event->messages()->latest()->get() as $message)
+                                        <li>
+                                            <div class="relative pb-8">
+                                                <div class="relative flex items-start space-x-3">
+                                                    <div class="min-w-0 flex-1">
+                                                        <div>
+                                                            <div class="text-sm">
+                                                                <h2 class="font-medium text-gray-900">{{ $message->user->name }}</h2>
+                                                            </div>
+                                                            <p class="mt-0.5 text-sm text-gray-500">
+                                                                {{ $message->created_at }}
+                                                            </p>
+                                                        </div>
+                                                        <div class="mt-2 text-sm text-gray-700">
+                                                            <p>
+                                                                {{ $message->message }}
+                                                            </p>
+                                                        </div>
+                                                        @can('view', $message)
+                                                        <form action="{{ route('events.messages.destroy', [$event->id, $message->id]) }}" method="POST">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button class="mt-6 rounded-lg bg-red-400 px-4 py-2 text-sm tracking-wider text-black outline-none hover:bg-red-300">Delete</button>
+                                                        </form>
+                                                        @endcan
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        @endforeach
+                                    </ul>
                                 </div>
-                                <div class="pt-6">
-                                    <div class="flow-root">
-                                        <ul role="list" class="-mb-8">
 
-                                            <li>
-                                                <div class="relative pb-8">
 
-                                                    <span class="absolute top-5 left-5 -ml-px h-full w-0.5 bg-gray-200" aria-hidden="true"></span>
-                                                    <div class="relative flex items-start space-x-3">
-
-                                                        <div class="relative">
-                                                            <img class="h-10 w-10 rounded-full bg-gray-400 flex items-center justify-center ring-8 ring-white" src="https://images.unsplash.com/photo-1520785643438-5bf77931f493?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=8&amp;w=256&amp;h=256&amp;q=80" alt="">
-
-                                                            <span class="absolute -bottom-0.5 -right-1 bg-white rounded-tl px-0.5 py-px">
-                                                                <svg class="h-5 w-5 text-gray-400" x-description="Heroicon name: solid/chat-alt" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                                                    <path fill-rule="evenodd" d="M18 5v8a2 2 0 01-2 2h-5l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2zM7 8H5v2h2V8zm2 0h2v2H9V8zm6 0h-2v2h2V8z" clip-rule="evenodd"></path>
-                                                                </svg>
-                                                            </span>
-                                                        </div>
-                                                        <div class="min-w-0 flex-1">
-                                                            <div>
-                                                                <div class="text-sm">
-                                                                    <a href="#" class="font-medium text-gray-900">Isaac Muendo</a>
-                                                                </div>
-                                                                <p class="mt-0.5 text-sm text-gray-500">
-                                                                    Commented 6d ago
-                                                                </p>
-                                                            </div>
-                                                            <div class="mt-2 text-sm text-gray-700">
-                                                                <p>
-                                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt nunc ipsum tempor purus vitae id. Morbi in vestibulum nec varius. Et diam cursus quis sed purus nam.
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                <div class="mt-6">
+                                    <div class="flex space-x-3">
+                                        <div class="min-w-0 flex-1">
+                                            <form action="{{ route('events.messages', $event->id) }}" method="POST">
+                                                @csrf
+                                                <div>
+                                                    <label for="message" class="sr-only">Message</label>
+                                                    <textarea id="message" name="message" rows="3" class="shadow-sm block w-full focus:ring-gray-900 focus:border-gray-900 sm:text-sm border border-gray-300 rounded-md" placeholder="Leave a comment"></textarea>
                                                 </div>
-                                            </li>
-
-                                            <li>
-                                                <div class="relative pb-8">
-                                                    <div class="relative flex items-start space-x-3">
-                                                        <div class="relative">
-                                                            <img class="h-10 w-10 rounded-full bg-gray-400 flex items-center justify-center ring-8 ring-white" src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=8&amp;w=256&amp;h=256&amp;q=80" alt="">
-                                                            <span class="absolute -bottom-0.5 -right-1 bg-white rounded-tl px-0.5 py-px">
-                                                                <svg class="h-5 w-5 text-gray-400" x-description="Heroicon name: solid/chat-alt" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                                                    <path fill-rule="evenodd" d="M18 5v8a2 2 0 01-2 2h-5l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2zM7 8H5v2h2V8zm2 0h2v2H9V8zm6 0h-2v2h2V8z" clip-rule="evenodd"></path>
-                                                                </svg>
-                                                            </span>
-                                                        </div>
-                                                        <div class="min-w-0 flex-1">
-                                                            <div>
-                                                                <div class="text-sm">
-                                                                    <a href="#" class="font-medium text-gray-900">Jason Meyers</a>
-                                                                </div>
-                                                                <p class="mt-0.5 text-sm text-gray-500">
-                                                                    Commented 2h ago
-                                                                </p>
-                                                            </div>
-                                                            <div class="mt-2 text-sm text-gray-700">
-                                                                <p>
-                                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt nunc ipsum tempor purus vitae id. Morbi in vestibulum nec varius. Et diam cursus quis sed purus nam. Scelerisque amet elit non sit ut tincidunt condimentum. Nisl ultrices eu venenatis diam.
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                <div class="mt-6 flex items-center justify-end space-x-4">
+                                                    <button type="submit" class="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-gray-900 hover:bg-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900">
+                                                        Comment
+                                                    </button>
                                                 </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="mt-6">
-                                        <div class="flex space-x-3">
-                                            <div class="flex-shrink-0">
-                                                <div class="relative">
-                                                    <img class="h-10 w-10 rounded-full bg-gray-400 flex items-center justify-center ring-8 ring-white" src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=8&amp;w=256&amp;h=256&amp;q=80" alt="">
-                                                    <span class="absolute -bottom-0.5 -right-1 bg-white rounded-tl px-0.5 py-px">
-                                                        <svg class="h-5 w-5 text-gray-400" x-description="Heroicon name: solid/chat-alt" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                                            <path fill-rule="evenodd" d="M18 5v8a2 2 0 01-2 2h-5l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2zM7 8H5v2h2V8zm2 0h2v2H9V8zm6 0h-2v2h2V8z" clip-rule="evenodd"></path>
-                                                        </svg>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                            <div class="min-w-0 flex-1">
-                                                <form action="#">
-                                                    <div>
-                                                        <label for="comment" class="sr-only">Comment</label>
-                                                        <textarea id="comment" name="comment" rows="3" class="shadow-sm block w-full focus:ring-gray-900 focus:border-gray-900 sm:text-sm border border-gray-300 rounded-md" placeholder="Leave a comment"></textarea>
-                                                    </div>
-                                                    <div class="mt-6 flex items-center justify-end space-x-4">
-                                                        <button type="submit" class="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-gray-900 hover:bg-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900">
-                                                            Comment
-                                                        </button>
-                                                    </div>
-                                                </form>
-                                            </div>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </section>
+                    @endauth
                 </div>
                 <aside class="hidden xl:block xl:pl-8">
                     <div class="space-y-4">

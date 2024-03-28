@@ -11,8 +11,7 @@
                 </p>
 
                 <div class="flex flex-col mt-6 space-y-3 lg:space-y-0 lg:flex-row">
-                    <a href="#" class="block px-5 py-2 text-sm font-medium tracking-wider text-center text-white transition-colors duration-300 transform bg-blue-700 rounded-md hover:bg-gray-700">Get Started</a>
-                    <a href="#" class="block px-5 py-2 text-sm font-medium tracking-wider text-center text-gray-700 transition-colors duration-300 transform bg-gray-200 rounded-md lg:mx-4 hover:bg-gray-300">View Features</a>
+                    <a href="{{ route('register') }}" class="block px-5 py-2 text-sm font-medium tracking-wider text-center text-white transition-colors duration-300 transform bg-blue-700 rounded-md hover:bg-gray-700">Get Started</a>
                 </div>
             </div>
         </div>
@@ -91,51 +90,15 @@
                         </span>
 
                         <div class="mt-4 md:mx-4 md:mt-0">
-                            <h1 class="text-xl font-medium text-gray-700 capitalize light:text-white">Analytics & Feedback for Organizers</h1>
+                            <h1 class="text-xl font-medium text-gray-700 capitalize light:text-white">Event Bookmarking & Engagement</h1>
 
                             <p class="mt-3 text-gray-500 light:text-gray-300">
-                                Provides organizers with valuable insights through analytics on event attendance and feedback.
+                                User can like, bookmark events that they like.
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section class="min-h-screen bg-white light:bg-gray-900 lg:flex" id="contact">
-        <div class="flex flex-col justify-center w-full p-8 lg:bg-gray-100 lg:light:bg-gray-800 lg:px-12 xl:px-32 lg:w-1/2">
-            <h1 class="text-2xl font-semibold text-gray-800 capitalize light:text-white lg:text-3xl">Contact Us.</h1>
-
-            <p class="mt-4 text-gray-500 light:text-gray-400">
-                Get In Touch With Us We Would love
-                to hear from you
-            </p>
-        </div>
-
-        <div class="flex flex-col justify-center w-full p-8 pt-0 lg:w-1/2 lg:px-12 xl:px-24 ">
-            <form>
-                <div class="-mx-2 md:items-center md:flex">
-                    <div class="flex-1 px-2">
-                        <label class="block mb-2 text-sm text-gray-600 light:text-gray-200">Full Name</label>
-                        <input type="text" placeholder="John Doe" class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md light:placeholder-gray-600 light:bg-gray-900 light:text-gray-300 light:border-gray-700 focus:border-blue-400 light:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
-                    </div>
-
-                    <div class="flex-1 px-2 mt-4 md:mt-0">
-                        <label class="block mb-2 text-sm text-gray-600 light:text-gray-200">Email address</label>
-                        <input type="email" placeholder="johndoe@example.com" class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md light:placeholder-gray-600 light:bg-gray-900 light:text-gray-300 light:border-gray-700 focus:border-blue-400 light:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
-                    </div>
-                </div>
-
-                <div class="w-full mt-4">
-                    <label class="block mb-2 text-sm text-gray-600 light:text-gray-200">Message</label>
-                    <textarea class="block w-full h-32 px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md md:h-56 light:placeholder-gray-600 light:bg-gray-900 light:text-gray-300 light:border-gray-700 focus:border-blue-400 light:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Message"></textarea>
-                </div>
-
-                <button class="w-full px-6 py-3 mt-4 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
-                    Send Message
-                </button>
-            </form>
         </div>
     </section>
 </x-main-layout>

@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\BookmarkEventController;
 use App\Http\Controllers\BookmarkEventMechanismController;
+use App\Http\Controllers\DeleteMessageController;
 use App\Http\Controllers\DiscoverEventsController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\EventDetailsController;
 use App\Http\Controllers\LikedEventController;
@@ -10,6 +12,7 @@ use App\Http\Controllers\LikeMechanismController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RsvpEventsController;
 use App\Http\Controllers\RsvpEventsMechanismController;
+use App\Http\Controllers\StoreMessageController;
 use App\Models\EventCategory;
 use Illuminate\Support\Facades\Route;
 
@@ -28,13 +31,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-// Route::get('/discover', function () {
-//     return view('discover');
-// })->middleware(['auth', 'verified'])->name('discover');
 
 Route::middleware('auth')->group(function () {
     Route::get('/events/discover', DiscoverEventsController::class)->name('discover');
@@ -43,6 +39,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+    Route::resource('/manage/users', UserController::class);
     Route::resource('/manage/events', EventController::class);
 
     Route::get('/events/upcoming-events', RsvpEventsController::class)->name('events.rsvpEvents');
@@ -53,6 +50,9 @@ Route::middleware('auth')->group(function () {
     Route::post('/events/liked/{id}', LikeMechanismController::class)->name('events.like');
     Route::post('/events/saved/{id}', BookmarkEventMechanismController::class)->name('events.bookmarkEvent');
     
+    Route::post('/events/{id}/messages', StoreMessageController::class)->name('events.messages');
+    Route::delete('/events/{id}/messages/{message}', DeleteMessageController::class)->name('events.messages.destroy');
+
     Route::get('/categories/{category}', function (EventCategory $category) {
         return response()->json($category);
     });

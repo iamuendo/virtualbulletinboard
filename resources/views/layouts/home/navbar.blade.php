@@ -25,14 +25,13 @@
                      <a href="{{ url('/') }}" class="px-2.5 py-2 text-gray-700 transition-colors duration-300 transform rounded-lg light:text-gray-200 hover:bg-gray-100 light:hover:bg-gray-700 md:mx-2">Home</a>
                      <a href="#features" class="px-2.5 py-2 text-gray-700 transition-colors duration-300 transform rounded-lg light:text-gray-200 hover:bg-gray-100 light:hover:bg-gray-700 md:mx-2">Features</a>
                      <a href="#about" class="px-2.5 py-2 text-gray-700 transition-colors duration-300 transform rounded-lg light:text-gray-200 hover:bg-gray-100 light:hover:bg-gray-700 md:mx-2">About</a>
-                     <a href="#contact" class="px-2.5 py-2 text-gray-700 transition-colors duration-300 transform rounded-lg light:text-gray-200 hover:bg-gray-100 light:hover:bg-gray-700 md:mx-2">Contact</a>
                  </div>
 
                  <div class="relative mt-4 md:mt-0 justify-center md:block">
                      @if (Route::has('login'))
                         <div class="hidden md:flex md:items-center md:space-x-6">
                             @auth
-                                <a href="{{ url('/dashboard') }}" class="font-semibold text-gray-600 hover:text-gray-900 light:text-gray-400 light:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
+                                <a href="{{ route('discover') }}" class="font-semibold text-gray-600 hover:text-gray-900 light:text-gray-400 light:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
                                 @else
                                     <a href="{{ route('login') }}" class="text-base font-medium text-blue hover:text-gray-300"> Log in </a>
                                 @if (Route::has('register'))

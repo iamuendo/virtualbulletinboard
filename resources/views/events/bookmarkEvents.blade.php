@@ -22,7 +22,7 @@
                                 Start Date
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Category
+                                End Date
                             </th>
                             <th scope="col" class="px-6 py-3">
                                 Action
@@ -40,7 +40,7 @@
                                     {{ $event->start_date }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ $event->category->name }}
+                                    {{ $event->end_date }}
                                 </td>
                                 <td class="px-6 py-4">
                                     <div class="flex space-x-2">

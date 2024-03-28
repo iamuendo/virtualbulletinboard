@@ -40,7 +40,7 @@
                                     {{ $event->start_date }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ $event->category->name }}
+                                    
                                 </td>
                                 <td class="px-6 py-4">
                                     <div class="flex space-x-2">

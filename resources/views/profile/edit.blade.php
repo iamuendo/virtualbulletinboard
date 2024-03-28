@@ -1,7 +1,9 @@
-<x-app-layout>
+@section("title","Update Profile | TaarifaBoard")
+
+<x-board-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 light:text-gray-200 leading-tight">
-            {{ __('Profile') }}
+            {{ __('Update Profile') }}
         </h2>
     </x-slot>
 
@@ -26,4 +28,4 @@
             </div>
         </div>
     </div>
-</x-app-layout>
+</x-board-layout>
