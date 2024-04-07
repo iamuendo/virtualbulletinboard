@@ -35,6 +35,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Isaac Muendo',
             'gender' => 1,
             'email' => 'muendoisaac@zetech.ac.ke',
+            'is_admin' => true
         ]);
 
         EventCategory::create(['name' => 'Bootcamp']);

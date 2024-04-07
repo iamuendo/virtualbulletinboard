@@ -54,11 +54,14 @@ Steps to install the project
 
     `php artisan migrate`
 
-9.  Link Storage Directory
+9.  Run Seeder
+    `php artisan db:seed`
+
+10. Link Storage Directory
 
     `php artisan storage:link`
 
-10. Install NPM Assets
+11. Install NPM Assets
 
     `npm run dev`
 
@@ -66,8 +69,8 @@ Steps to install the project
 
     `yarn dev`
 
-11. Start the Development Server
+12. Start the Development Server
 
     `php artisan serve`
 
-12. Access the Application Visit `http://localhost:8000` in your browser to access the application.
+13. Access the Application Visit `http://localhost:8000` in your browser to access the application.
